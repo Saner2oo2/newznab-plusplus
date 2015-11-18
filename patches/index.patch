@@ -1,0 +1,16 @@
+--- ../www/index.php	2015-11-17 18:51:35.995999264 +0000
++++ ../www/index.php	2015-11-17 18:52:11.172850241 +0000
+@@ -15,9 +15,8 @@
+ $page = new Page;
+ $users = new Users;
+ 
+-if ($page->site->style != "default" && file_exists(WWW_DIR.'pages/'.$page->site->style."/".$page->page.'.php'))
+-	include(WWW_DIR.'pages/'.$page->site->style."/".$page->page.'.php');
+-elseif (file_exists(WWW_DIR.'pages/'.$page->page.'.php'))
+-    include(WWW_DIR.'pages/'.$page->page.'.php');
++if (file_exists(WWW_DIR.'pages/'.$page->page.'.php'))
++   include(WWW_DIR.'pages/'.$page->page.'.php');
+ else
+-    $page->show404();
++ $page->show404();
++

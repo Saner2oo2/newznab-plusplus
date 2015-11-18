@@ -1,0 +1,28 @@
+--- ..//www/lib/framework/basepage.php	2015-11-17 18:51:35.832013944 +0000
++++ ..//www/lib/framework/basepage.php	2015-11-17 14:57:14.947311013 +0000
+@@ -73,6 +73,7 @@
+ 		$users = new Users();
+ 		if ($users->isLoggedIn())
+ 		{
++			$this->page = (isset($_GET['page'])) ? $_GET['page'] : ltrim($this->site->home_link, '/');
+ 			$this->userdata = $users->getById($users->currentUserId());
+ 			
+ 			//
+@@ -123,6 +124,7 @@
+ 		}
+ 		else
+ 		{
++			 $this->page = (isset($_GET['page'])) ? $_GET['page'] : 'content';
+ 			$this->smarty->assign('isadmin',"false");	
+ 			$this->smarty->assign('loggedin',"false");	
+ 			$this->floodCheck();
+@@ -130,6 +132,9 @@
+ 
+ 		$this->smarty->assign('site', $this->site);
+ 		$this->smarty->assign('page', $this);
++		if (file_exists(WWW_DIR.'templates/'.$this->site->style.'/theme.php'))
++     require_once(WWW_DIR.'templates/'.$this->site->style.'/theme.php');
++     $this->smarty->assign('themevars', (isset($themevars) ? $themevars : null));
+ 	}    
+ 	
+ 	public function floodCheck($role="")

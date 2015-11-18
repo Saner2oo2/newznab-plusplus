@@ -1,0 +1,24 @@
+--- ../www/pages/filelist.php	2015-11-17 18:51:37.699846735 +0000
++++ ..//public_html/www/pages/filelist.php	2015-11-17 15:01:26.983916646 +0000
+@@ -41,7 +41,20 @@
+ 		$page->smarty->assign('modal', true);
+ 	}
+ 
+-	$page->content = $page->smarty->fetch('viewfilelist.tpl');
++	$modal = false;
++	if (isset($_GET['modal'])) 
++	{
++		$modal = true;
++		$page->smarty->assign('modal', true);
++	}
++ 
++	$page->content = $page->smarty->fetch('viewfilelist.tpl');
++	
++	if ($modal)
++		echo $page->content;
++	else
++		$page->render();
++}
+ 	
+ 	if ($modal)
+ 		echo $page->content;
