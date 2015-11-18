@@ -1,5 +1,5 @@
---- ..//www/lib/framework/basepage.php	2015-11-17 18:51:35.832013944 +0000
-+++ ..//www/lib/framework/basepage.php	2015-11-17 14:57:14.947311013 +0000
+--- ../www/lib/framework/basepage.php	2015-11-17 18:51:35.832013944 +0000
++++ ../www/lib/framework/basepage.php	2015-11-17 14:57:14.947311013 +0000
 @@ -73,6 +73,7 @@
  		$users = new Users();
  		if ($users->isLoggedIn())

@@ -1,5 +1,5 @@
 --- ../www/pages/filelist.php	2015-11-17 18:51:37.699846735 +0000
-+++ ..//public_html/www/pages/filelist.php	2015-11-17 15:01:26.983916646 +0000
++++ ..//www/pages/filelist.php	2015-11-17 15:01:26.983916646 +0000
 @@ -41,7 +41,20 @@
  		$page->smarty->assign('modal', true);
  	}
